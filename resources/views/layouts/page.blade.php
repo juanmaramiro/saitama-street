@@ -75,36 +75,49 @@
                 @else
 
                 @php
-                $cartItems = DB::table('carts')
-                    ->where('cart_user_id', '=', Auth::user()->id)
-                    ->count('cart_product_id');
+                    $cartItems = DB::table('carts')
+                        ->where('cart_user_id', '=', Auth::user()->id)
+                        ->count('cart_product_id');
                 @endphp
 
                 <li class="navbar-item"><a class="nav-link text-light" href="{{ route('cart') }}"><i class="fas fa-shopping-cart"></i> ({{$cartItems}})</a>
                 <li class="navbar-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        @if(!Auth::user()->avatar)
+
+                        <img src="../../../storage/default-avatar.png" alt="{{Auth::user()->name }}" width="19" style="border-radius: 10px"/>
+
+                        @else
+
                         <img src="../../../storage/users_avatar/{{ Auth::user()->avatar }}" alt="{{Auth::user()->name }}" width="19" style="border-radius: 10px"/>
+
+                        @endif
+
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="dropdown01">
 
                         @if(Auth::user()->admin == 1)
 
-                        <a class="dropdown-item bg-dark" style="color: #EEECEB" href="{{ route('admin') }}">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
-                        </a>
+                            <a class="dropdown-item bg-dark" style="color: #EEECEB" href="{{ route('home') }}">
+                                <i class="fas fa-user"></i> Perfil
+                            </a>
+                            <a class="dropdown-item bg-dark" style="color: #EEECEB" href="{{ route('admin') }}">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
 
                         @else
 
-                        <a class="dropdown-item bg-dark" style="color: #EEECEB" href="{{ route('home') }}">
-                            <i class="fas fa-user"></i> Perfil
-                        </a>
+                            <a class="dropdown-item bg-dark" style="color: #EEECEB" href="{{ route('home') }}">
+                                <i class="fas fa-user"></i> Perfil
+                            </a>
 
                         @endif
 
-                        <a class="dropdown-item bg-dark" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #EEECEB" href="">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </a>
+                            <a class="dropdown-item bg-dark" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #EEECEB" href="">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
                     </div>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

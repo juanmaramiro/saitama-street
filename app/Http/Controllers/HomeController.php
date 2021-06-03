@@ -56,7 +56,7 @@ class HomeController extends Controller
 
         $model->update();
 
-        return redirect('home');
+        return redirect('perfil');
     }
 
     public function changeEmail(Request $request)
@@ -67,7 +67,7 @@ class HomeController extends Controller
 
         $model->update();
 
-        return redirect('home');
+        return redirect('perfil');
     }
 
     public function changePassword(Request $request)
@@ -80,7 +80,7 @@ class HomeController extends Controller
 
         $model->update();
 
-        return redirect('home');
+        return redirect('perfil');
     }
 
     public function contact()

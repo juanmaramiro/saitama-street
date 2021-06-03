@@ -15,7 +15,18 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="text-center">Perfil de {{ Auth::user()->name }}</h5>
-                            <img src="../../../storage/users_avatar/{{ Auth::user()->avatar }}" alt="{{Auth::user()->name }}" style="border-radius: 10px" class="img-fluid" max-width="100%" height= "auto"/><br><br>
+
+                            @if(!Auth::user()->avatar)
+
+                                <img src="../../../storage/default-avatar.png" alt="{{Auth::user()->name }}" style="border-radius: 10px" class="img-fluid" max-width="100%" height= "auto"/>
+
+                            @else
+
+                                <img src="../../../storage/users_avatar/{{ Auth::user()->avatar }}" alt="{{Auth::user()->name }}" style="border-radius: 10px" class="img-fluid" max-width="100%" height= "auto"/>
+
+                            @endif
+
+                            <br><br>
                             <form action="{{ route('update.avatar') }}" id="update-avatar" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">

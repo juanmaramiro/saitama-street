@@ -40,9 +40,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="{{url('/')}}">
-                            <img src="{{asset('admin_assets/images/icon/logo.png')}}" alt="CoolAdmin" />
-                        </a>
+                        <a class="navbar-brand" href="{{url('/')}}"><img src="../../../storage/saitamalogo.png" width="37" class="d-inline-block align-top " alt=""> <b><span class="text-dark">Saitama</span><span class="text-danger"><i>Street</i></span></b></a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -55,7 +53,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="{{ url('admin') }}">
+                            <a href="{{ route('admin') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -89,7 +87,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="{{ url('admin') }}">
+                            <a href="{{ route('admin') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
