@@ -334,34 +334,55 @@
     // Percent Chart
     var ctx = document.getElementById("percent-chart");
     if (ctx) {
-      ctx.height = 280;
+      ctx.height = 300;
       var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
           datasets: [
             {
               label: "My First dataset",
-              data: [60, 40],
+              data: [27, 27, 24, 27, 27, 21, 27],
               backgroundColor: [
                 '#00b5e9',
-                '#fa4251'
+                '#fa4251',
+                '#00ad5f',
+                '#DFEF18',
+                '#AE4BFF',
+                '#FFA4F2',
+                '#FFA810'
               ],
               hoverBackgroundColor: [
                 '#00b5e9',
-                '#fa4251'
+                '#fa4251',
+                '#00ad5f',
+                '#DFEF18',
+                '#AE4BFF',
+                '#FFA4F2',
+                '#FFA810'
+                
               ],
               borderWidth: [
-                0, 0
+                0, 0, 0, 0, 0, 0, 0
               ],
               hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
                 'transparent',
                 'transparent'
               ]
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Camisetas',
+            'Figuras',
+            'Funko Pop!',
+            'Tazas',
+            'Fundas Móvil',
+            'Peluches',
+            'Mascarillas'
           ]
         },
         options: {
@@ -389,6 +410,8 @@
   } catch (error) {
     console.log(error);
   }
+
+  
 
 
 
@@ -623,34 +646,62 @@
     // Percent Chart 2
     var ctx = document.getElementById("percent-chart2");
     if (ctx) {
-      ctx.height = 209;
+      ctx.height = 300;
       var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
           datasets: [
             {
               label: "My First dataset",
-              data: [60, 40],
+              data: [18, 21, 21, 21, 21, 21, 18, 21, 18],
               backgroundColor: [
-                '#00b5e9',
-                '#fa4251'
+                '#0C029E',
+                '#FFA810',
+                '#AE4BFF',
+                '#00ad5f',
+                '#fa4251',
+                '#000000',
+                '#FFA4F2',
+                '#DFEF18',
+                '#00b5e9'
               ],
               hoverBackgroundColor: [
-                '#00b5e9',
-                '#fa4251'
+                '#0C029E',
+                '#FFA810',
+                '#AE4BFF',
+                '#00ad5f',
+                '#fa4251',
+                '#000000',
+                '#FFA4F2',
+                '#DFEF18',
+                '#00b5e9'
               ],
               borderWidth: [
-                0, 0
+                0, 0, 0, 0, 0, 0, 0, 0, 0
               ],
               hoverBorderColor: [
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
+                'transparent',
                 'transparent',
                 'transparent'
               ]
             }
           ],
           labels: [
-            'Products',
-            'Services'
+            'Final Fantasy',
+            'Dragon Ball',
+            'Harry Potter',
+            'Star Wars',
+            'Marvel',
+            'DC Comics',
+            'Cine',
+            'Gaming',
+            'Assassin´s Creed'
           ]
         },
         options: {

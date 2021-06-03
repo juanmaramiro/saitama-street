@@ -4141,6 +4141,30 @@ section {
     background: #fa4251;
 }
 
+.dot--yellow {
+    background: #DFEF18;
+}
+
+.dot--purple {
+    background: #AE4BFF;
+}
+
+.dot--pink {
+    background: #FFA4F2;
+}
+
+.dot--orange {
+    background: #FFA810;
+}
+
+.dot--black {
+    background: #000000;
+}
+
+.dot--dark-blue {
+    background: #0C029E;
+}
+
 .chart-note-wrap {
     margin-top: 20px;
 }

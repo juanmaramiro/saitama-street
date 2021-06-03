@@ -7,7 +7,7 @@
 <link href="{{ asset('css/catallection.css') }}" rel="stylesheet">
 
 @section('content')
-  <main role="main">
+  <main role="main" style="margin-bottom: 2em">
     <div class="album bg-white">
       <div class="container">
         <div class="row">

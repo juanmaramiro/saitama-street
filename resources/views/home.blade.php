@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <section class="section-content padding-y">
+    <section class="section-content padding-y" style="margin-bottom: 2em">
         <div class="container">
             <div class="row">
                 <aside class="col-md-3">

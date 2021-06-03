@@ -9,82 +9,91 @@
 	<div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1">overview</h2>
-                <button class="au-btn au-btn-icon au-btn--blue">
-                    <i class="zmdi zmdi-plus"></i>add item
-                </button>
+                <h2 class="title-1">Vista general</h2>
             </div>
         </div>
     </div>
     <div class="row m-t-25">
         <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c1">
+            <div class="overview-item overview-item--c1" style="padding-bottom: 3em">
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
-                            <i class="zmdi zmdi-account-o"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div class="text">
-                            <h2>10368</h2>
-                            <span>members online</span>
+
+                            @php
+                                $usersCount = DB::table('users')
+                                    ->count('id');
+                            @endphp
+
+                            <h2>{{$usersCount}}</h2>
+                            <span>usuarios registrados</span>
                         </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart1"></canvas>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c2">
+            <div class="overview-item overview-item--c2" style="padding-bottom: 3em">
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
-                            <i class="zmdi zmdi-shopping-cart"></i>
+                            <i class="fas fa-dolly-flatbed"></i>
                         </div>
                         <div class="text">
-                            <h2>388,688</h2>
-                            <span>items solid</span>
+
+                            @php
+                                $productsCount = DB::table('products')
+                                    ->count('id');
+                            @endphp
+
+                            <h2>{{ $productsCount }}</h2>
+                            <span>productos en venta</span>
                         </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart2"></canvas>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c3">
+            <div class="overview-item overview-item--c3" style="padding-bottom: 3em">
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
                             <i class="zmdi zmdi-calendar-note"></i>
                         </div>
                         <div class="text">
-                            <h2>1,086</h2>
-                            <span>this week</span>
+
+                            @php
+                                $categoriesCount = DB::table('categories')
+                                    ->count('id');
+                            @endphp
+
+                            <h2>{{ $categoriesCount }}</h2>
+                            <span>categorias creadas</span>
                         </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart3"></canvas>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="overview-item overview-item--c4">
+            <div class="overview-item overview-item--c4" style="padding-bottom: 3em">
                 <div class="overview__inner">
                     <div class="overview-box clearfix">
                         <div class="icon">
-                            <i class="zmdi zmdi-money"></i>
+                            <i class="fas fa-gift"></i>
                         </div>
                         <div class="text">
-                            <h2>$1,060,386</h2>
-                            <span>total earnings</span>
+
+                            @php
+                                $couponsCount = DB::table('coupons')
+                                    ->count('id');
+                            @endphp
+
+                            <h2>{{ $couponsCount }}</h2>
+                            <span>cupones disponibles</span>
                         </div>
-                    </div>
-                    <div class="overview-chart">
-                        <canvas id="widgetChart4"></canvas>
                     </div>
                 </div>
             </div>
@@ -92,35 +101,55 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="au-card recent-report">
+            <div class="au-card chart-percent-card">
                 <div class="au-card-inner">
-                    <h3 class="title-2">recent reports</h3>
-                    <div class="chart-info">
-                        <div class="chart-info__left">
-                            <div class="chart-note">
-                                <span class="dot dot--blue"></span>
-                                <span>products</span>
-                            </div>
-                            <div class="chart-note mr-0">
-                                <span class="dot dot--green"></span>
-                                <span>services</span>
+                    <h3 class="title-2 tm-b-5">Nº de productos por Colecciones</h3>
+                    <div class="row no-gutters">
+                        <div class="col-xl-6">
+                            <div class="chart-note-wrap">
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--dark-blue"></span>
+                                    <span>Final Fantasy</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--orange"></span>
+                                    <span>Dragon Ball</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--purple"></span>
+                                    <span>Harry Potter</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--green"></span>
+                                    <span>Star Wars</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--red"></span>
+                                    <span>Marvel</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--black"></span>
+                                    <span>DC Comics</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--pink"></span>
+                                    <span>Cine</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--yellow"></span>
+                                    <span>Gaming</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--blue"></span>
+                                    <span>Assassin's Creed</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="chart-info__right">
-                            <div class="chart-statis">
-                                <span class="index incre">
-                                    <i class="zmdi zmdi-long-arrow-up"></i>25%</span>
-                                <span class="label">products</span>
-                            </div>
-                            <div class="chart-statis mr-0">
-                                <span class="index decre">
-                                    <i class="zmdi zmdi-long-arrow-down"></i>10%</span>
-                                <span class="label">services</span>
+                        <div class="col-xl-6">
+                            <div class="percent-chadrt">
+                                <canvas id="percent-chart2"></canvas>
                             </div>
                         </div>
-                    </div>
-                    <div class="recent-report__chart">
-                        <canvas id="recent-rep-chart"></canvas>
                     </div>
                 </div>
             </div>
@@ -128,22 +157,42 @@
         <div class="col-lg-6">
             <div class="au-card chart-percent-card">
                 <div class="au-card-inner">
-                    <h3 class="title-2 tm-b-5">char by %</h3>
+                    <h3 class="title-2 tm-b-5">Nº de productos</h3>
                     <div class="row no-gutters">
                         <div class="col-xl-6">
                             <div class="chart-note-wrap">
                                 <div class="chart-note mr-0 d-block">
                                     <span class="dot dot--blue"></span>
-                                    <span>products</span>
+                                    <span>Camisetas</span>
                                 </div>
                                 <div class="chart-note mr-0 d-block">
                                     <span class="dot dot--red"></span>
-                                    <span>services</span>
+                                    <span>Figuras</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--green"></span>
+                                    <span>Funko Pop!</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--yellow"></span>
+                                    <span>Tazas</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--purple"></span>
+                                    <span>Fundas Móvil</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--pink"></span>
+                                    <span>Peluches</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--orange"></span>
+                                    <span>Mascarillas</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="percent-chart">
+                            <div class="percent-chadrt">
                                 <canvas id="percent-chart"></canvas>
                             </div>
                         </div>

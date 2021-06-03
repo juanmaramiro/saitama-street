@@ -8,7 +8,7 @@
 
 @section('content')
 <section>
-<main role="main">
+<main role="main" style="margin-bottom: 2em">
   <div class="album bg-white">
     <div class="container">
       <div class="row">

@@ -61,7 +61,7 @@
       </a>
     </div>
 
-    <div class="album bg-white">
+    <div class="album bg-white" style="margin-bottom: 2em">
       <div class="container">
         <h2 style="margin-bottom: 1em">Últimos productos añadidos</h2>
         <div class="row">
