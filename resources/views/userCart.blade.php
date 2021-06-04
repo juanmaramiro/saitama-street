@@ -66,7 +66,7 @@
                         </td>
                         <td> 
                           <div class="price-wrap">
-                            <var class="price">{{ $product->product_price * $cart->product_quantity }}€</var>
+                            <var class="price">{{ $product->product_price * $cart->product_quantity}}</var>
                             <small class="text-muted"> {{ $product->product_price }}€/u </small> 
                           </div>
                         </td>
