@@ -84,4 +84,6 @@ class CouponController extends Controller
             return view('accessDenied');
         }
     }
+
+    
 }

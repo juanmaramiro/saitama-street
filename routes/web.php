@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		Route::get('carrito/delete_{id}', 'CartController@delete')->name('cart.delete');
 		Route::post('carrito/update', 'CartController@update')->name('cart.update');
 		Route::get('checkout', 'CartController@checkout')->name('checkout');
+		Route::post('checkCoupon', 'CartController@checkCoupon')->name('check.coupon');
 
 		## User panel routes
 		Route::post('updateAvatar','HomeController@changeAvatar')->name('update.avatar');
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 
 		## Users CRUD routes ##
 		Route::get('admin/users', 'AdminController@listUsers')->name('getUsers');
+		Route::get('admin/users/update/{id}', 'AdminController@changePrivileges')->name('users.update');
 
 		## Categories CRUD routes ##
 		Route::get('admin/categories', 'CategoryController@index')->name('getCategories');

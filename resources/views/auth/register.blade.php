@@ -50,7 +50,7 @@
         <label for="password-confirm" class="sr-only">Confirma Password</label>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirma password" required>
 
-        <button class="btn btn-lg btn-dark btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Registro</button>
+        <button class="btn btn-lg btn-dark btn-block" type="submit"><i class="fas fa-user-plus"></i> Registro</button>
     </form>
 
 @stop

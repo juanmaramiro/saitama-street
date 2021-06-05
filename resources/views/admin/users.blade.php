@@ -44,11 +44,11 @@
                                                 
                                 @if($user->admin == 1)
                                                 
-                                    <td><span class="role member">Admin</span></td>
+                                    <td><a href="{{ url('admin/users/update') }}/{{$user->id}}"><span class="role member">Admin</span></a></td>
                                                 
                                 @else
                                                 
-                                    <td><span class="role user">User</span></td>
+                                    <td><a href="{{ url('admin/users/update') }}/{{$user->id}}"><span class="role user">User</span></a></td>
                                                 
                                 @endif
                                             

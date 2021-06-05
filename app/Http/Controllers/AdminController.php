@@ -42,4 +42,25 @@ class AdminController extends Controller
             return view('accessDenied');
         }
     }
+
+    public function changePrivileges($id)
+    {
+        if (Auth::user()->admin == 1)
+        {
+            $model = User::find($id);
+            
+            if($model->admin == 0)
+            {
+                $model->admin = 1;
+            } else {
+                $model->admin = 0;
+            }
+            
+            $model->update();
+
+            return redirect('admin/users');
+        } else {
+            return view('accessDenied');
+        }
+    }
 }

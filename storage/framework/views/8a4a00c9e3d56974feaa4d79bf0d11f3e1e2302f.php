@@ -1,49 +1,32 @@
-<?php $__env->startSection('content'); ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    <?php if(session('status')): ?>
-                        <div class="alert alert-success">
-                            <?php echo e(session('status')); ?>
-
-                        </div>
-                    <?php endif; ?>
-
-                    <form class="form-horizontal" method="POST" action="<?php echo e(route('password.email')); ?>">
-                        <?php echo e(csrf_field()); ?>
-
-
-                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required>
-
-                                <?php if($errors->has('email')): ?>
-                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('email')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<?php $__env->startSection('title'); ?>
+  Recuperar contraseña
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<link href="<?php echo e(asset('css/login.css')); ?>" rel="stylesheet">
+
+<?php $__env->startSection('content'); ?>
+
+    <form class="form-signin" action="<?php echo e(route('password.email')); ?>" method="POST" style="margin-bottom: 2em">
+        <?php echo e(csrf_field()); ?>
+
+        <div class="text-center">
+            <img class="mb-4 te" src="../../../storage/saitamalogo.png" alt="" width="80"><br>
+            <h2><b>Saitama<span class="text-danger"><i>Reset</i></span></b></a></h3>
+        </div>
+        <label for="inputEmail" class="sr-only">Dirección e-mail</label>
+        <input type="email" id="email" class="form-control" name="email" placeholder="Dirección e-mail" value="<?php echo e(old('email')); ?>" style="border-radius: 2px" required autofocus>
+
+        <?php if($errors->has('email')): ?>
+
+            <span class="help-block">
+                <strong><?php echo e($errors->first('email')); ?></strong>
+            </span>
+
+        <?php endif; ?>
+
+        <button class="btn btn-lg btn-dark btn-block" style="margin-top: 1em" type="submit"><i class="fas fa-envelope"></i> Reset</button>
+    </form>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.page', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

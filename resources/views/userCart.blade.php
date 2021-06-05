@@ -81,7 +81,7 @@
                       @endforeach
         
                         <td class="text-right">
-                          <a href="{{ url('carrito/update') }}" title="Actualizar cantidad" class="btn btn-light mr-2"><i class="fas fa-sync-alt" onclick="event.preventDefault(); document.getElementById('update-quantity-{{$cart->id}}').submit();"></i></a> 
+                          <button title="Actualizar cantidad" class="btn btn-light mr-2"><i class="fas fa-sync-alt" onclick="event.preventDefault(); document.getElementById('update-quantity-{{$cart->id}}').submit();"></i></button> 
                           <a href="{{ url('carrito/delete') }}_{{$cart->id}}" title="Eliminar del carrito" class="btn btn-light mr-2"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                       </tr>
@@ -110,13 +110,16 @@
                   <div class="form-group">
                     <label>¿Tienes un cupón?</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" name="" placeholder="Coupon code">
-                      <span class="input-group-append"> 
-                        <button class="btn btn-dark">Aplicar</button>
+                      <input type="text" class="form-control" id="coupon" name="couponCh" placeholder="Coupon code" form="check-coupon">
+                      <span class="input-group-append">
+                        <input class="btn btn-dark" type="button" form="check-coupon" value="Aplicar" onclick="event.preventDefault(); document.getElementById('check-coupon').submit();">
                       </span>
                     </div>
                   </div>
                 </form>
+                <form id="check-coupon" name="check-coupon" action="{{ route('check.coupon') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                      </form>
               </div>
             </div>
             <div class="card">
@@ -127,25 +130,18 @@
                 </dl>
                 <dl class="dlist-align">
                   <dt>Descuento:</dt>
-
-                    @php
-
-                      $descuento = 3;
-                          
-                    @endphp
-
-                  <dd class="text-right">-{{ $descuento }}€</dd>
+                  <dd class="text-right" id="discount" name="discount" form="go-checkout" value="{{ $discount }}">-{{ $discount }}€</dd>
                 </dl>
                 <dl class="dlist-align">
                   <dt>Total:</dt>
-                  <dd class="text-right h5"><strong>{{$total - $descuento }}€</strong></dd>
+                  <dd class="text-right h5"><strong>{{$total - $discount }}€</strong></dd>
                 </dl>
                 <hr>
                 <a href="{{route('checkout')}}">
                   <button class="btn btn-danger col-md-12">
                     <i class="fas fa-box"></i> Realizar pedido
                   </button>
-                </a>     
+                </a>  
               </div>
             </div>
           </aside>

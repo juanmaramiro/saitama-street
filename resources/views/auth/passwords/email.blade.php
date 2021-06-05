@@ -1,47 +1,31 @@
-@extends('layouts.app')
+@extends('layouts.page')
+
+@section('title')
+  Recuperar contraseña
+@endsection
+
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <form class="form-signin" action="{{ route('password.email') }}" method="POST" style="margin-bottom: 2em">
+        {{ csrf_field() }}
+        <div class="text-center">
+            <img class="mb-4 te" src="../../../storage/saitamalogo.png" alt="" width="80"><br>
+            <h2><b>Saitama<span class="text-danger"><i>Reset</i></span></b></a></h3>
         </div>
-    </div>
-</div>
-@endsection
+        <label for="inputEmail" class="sr-only">Dirección e-mail</label>
+        <input type="email" id="email" class="form-control" name="email" placeholder="Dirección e-mail" value="{{ old('email') }}" style="border-radius: 2px" required autofocus>
+
+        @if ($errors->has('email'))
+
+            <span class="help-block">
+                <strong>{{ $errors->first('email') }}</strong>
+            </span>
+
+        @endif
+
+        <button class="btn btn-lg btn-dark btn-block" style="margin-top: 1em" type="submit"><i class="fas fa-envelope"></i> Reset</button>
+    </form>
+
+@stop

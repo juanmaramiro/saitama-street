@@ -42,11 +42,11 @@
                                                 
                                 <?php if($user->admin == 1): ?>
                                                 
-                                    <td><span class="role member">Admin</span></td>
+                                    <td><a href="<?php echo e(url('admin/users/update')); ?>/<?php echo e($user->id); ?>"><span class="role member">Admin</span></a></td>
                                                 
                                 <?php else: ?>
                                                 
-                                    <td><span class="role user">User</span></td>
+                                    <td><a href="<?php echo e(url('admin/users/update')); ?>/<?php echo e($user->id); ?>"><span class="role user">User</span></a></td>
                                                 
                                 <?php endif; ?>
                                             
