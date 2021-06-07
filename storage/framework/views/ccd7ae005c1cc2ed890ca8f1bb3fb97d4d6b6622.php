@@ -11,7 +11,7 @@
 
         <div class="text-center">
             <img class="mb-4 te" src="../../../storage/saitamalogo.png" alt="" width="80"><br>
-            <h2><b>Saitama<span class="text-danger"><i>Register</i></span></b></a></h3>
+            <h2><b>Saitama<span class="text-danger"><i>Register</i></span></b></h2>
         </div>
         <label for="name" class="sr-only">Name</label>
         <input id="name" type="text" class="form-control" name="name" placeholder="Nombre de usuario" required autofocus>

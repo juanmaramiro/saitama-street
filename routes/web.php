@@ -31,8 +31,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		Route::get('carrito', 'CartController@index')->name('cart');
 		Route::get('carrito/delete_{id}', 'CartController@delete')->name('cart.delete');
 		Route::post('carrito/update', 'CartController@update')->name('cart.update');
-		Route::get('checkout', 'CartController@checkout')->name('checkout');
+		Route::post('checkout', 'CartController@checkout')->name('checkout');
 		Route::post('checkCoupon', 'CartController@checkCoupon')->name('check.coupon');
+		Route::get('endcart', 'CartController@endCart')->name('endCart');
 
 		## User panel routes
 		Route::post('updateAvatar','HomeController@changeAvatar')->name('update.avatar');

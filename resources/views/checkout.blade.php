@@ -78,7 +78,7 @@
     		</div>
 		    <div class="col-md-8 order-md-1">
 		      <h4 class="mb-3 text-muted">Dirección de envío</h4>
-		      <form class="needs-validation" action="">
+		      <form class="needs-validation" action="{{ route('endCart') }}">
 		        <div class="row">
 		          <div class="col-md-6 mb-3">
 		            <label for="firstName">Nombre</label>

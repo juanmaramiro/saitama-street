@@ -196,16 +196,16 @@
 
                     <ul class="list-unstyled foot-desc">
                         <li class="mb-2">
-                            <a href="#!" class="text-light">Final Fantasy</a>
+                            <a href="<?php echo e(route('getCollection', ['category' => 'final-fantasy'])); ?>" class="text-light">Final Fantasy</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#!" class="text-light">Marvel</a>
+                            <a href="<?php echo e(route('getCollection', ['category' => 'marvel'])); ?>" class="text-light">Marvel</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#!" class="text-light">Harry Potter</a>
+                            <a href="<?php echo e(route('getCollection', ['category' => 'harry-potter'])); ?>" class="text-light">Harry Potter</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#!" class="text-light">Gaming</a>
+                            <a href="<?php echo e(route('getCollection', ['category' => 'gaming'])); ?>" class="text-light">Gaming</a>
                         </li>
                     </ul>
                 </div>

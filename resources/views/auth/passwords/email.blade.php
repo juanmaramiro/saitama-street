@@ -12,7 +12,7 @@
         {{ csrf_field() }}
         <div class="text-center">
             <img class="mb-4 te" src="../../../storage/saitamalogo.png" alt="" width="80"><br>
-            <h2><b>Saitama<span class="text-danger"><i>Reset</i></span></b></a></h3>
+            <h2><b>Saitama<span class="text-danger"><i>Reset</i></span></b></h2>
         </div>
         <label for="inputEmail" class="sr-only">Dirección e-mail</label>
         <input type="email" id="email" class="form-control" name="email" placeholder="Dirección e-mail" value="{{ old('email') }}" style="border-radius: 2px" required autofocus>

@@ -26,7 +26,7 @@ class CartController extends Controller
                 ->where('carts.cart_user_id', '=', Auth::user()->id)
                 ->sum(DB::raw('products.product_price*carts.product_quantity'));
 
-        return view('userCart', ['products' => $products, 'carts' => $carts, 'categories' => $categories, 'total' => $total, 'discount' => $discount]);
+        return view('userCart', ['coupons' => $coupons, 'products' => $products, 'carts' => $carts, 'categories' => $categories, 'total' => $total, 'discount' => $discount]);
     }
 
     public function store(Request $request)
@@ -54,6 +54,10 @@ class CartController extends Controller
 
         $model->update();
 
+        echo "<div class='spinner-grow text-muted'></div>";
+
+        //sleep(2);
+
         return redirect('carrito');
 
     }
@@ -73,7 +77,7 @@ class CartController extends Controller
         $categories = Category::all();
         $carts = Cart::all();
         $coupons = Coupon::all();
-        $discount = 10;
+        $discount = $request->post('discount');
 
         $total = DB::table('products')
                 ->join('carts', 'products.id', '=', 'carts.cart_product_id')
@@ -95,20 +99,29 @@ class CartController extends Controller
                 ->where('carts.cart_user_id', '=', Auth::user()->id)
                 ->sum(DB::raw('products.product_price*carts.product_quantity'));
 
-        
-        $code = $request->post('couponCh');
+        $code = $request->post('coupon');
+
+        $discount = 0;
 
         foreach($coupons as $coupon)
         {
-            if(strpos($coupon->coupon_code, '$code') !== false)
+            if($coupon->coupon_code == $code)
             {
                 $discount = $coupon->coupon_value;
-            } else {
-                $discount = 10;
             }
+
         }
 
-        return view('userCart', ['products' => $products, 'carts' => $carts, 'categories' => $categories, 'total' => $total, 'discount' => $discount]);
+        return view('userCart', ['coupons' => $coupons, 'products' => $products, 'carts' => $carts, 'categories' => $categories, 'total' => $total, 'discount' => $discount]);
+    }
+
+    public function endCart()
+    {
+        $model = Cart::where('cart_user_id', '=', Auth::user()->id );
+
+        $model->delete();
+
+        return view('endCart');
     }
 
 }

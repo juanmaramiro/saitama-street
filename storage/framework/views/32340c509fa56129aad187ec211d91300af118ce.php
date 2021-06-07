@@ -81,7 +81,7 @@
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
                         <td class="text-right">
-                          <button title="Actualizar cantidad" class="btn btn-light mr-2"><i class="fas fa-sync-alt" onclick="event.preventDefault(); document.getElementById('update-quantity-<?php echo e($cart->id); ?>').submit();"></i></button> 
+                          <button title="Actualizar cantidad" type="submit" class="btn btn-light mr-2" form="update-quantity-<?php echo e($cart->id); ?>"><i class="fas fa-sync-alt"></i></button> 
                           <a href="<?php echo e(url('carrito/delete')); ?>_<?php echo e($cart->id); ?>" title="Eliminar del carrito" class="btn btn-light mr-2"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                       </tr>
@@ -110,17 +110,18 @@
                   <div class="form-group">
                     <label>¿Tienes un cupón?</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" id="coupon" name="couponCh" placeholder="Coupon code" form="check-coupon">
+                      <input type="text" class="form-control" id="coupon" name="coupon" placeholder="Coupon code" form="check-coupon">
                       <span class="input-group-append">
-                        <input class="btn btn-dark" type="button" form="check-coupon" value="Aplicar" onclick="event.preventDefault(); document.getElementById('check-coupon').submit();">
+                        <button class="btn btn-dark" type="submit" form="check-coupon">Aplicar</button>
                       </span>
                     </div>
                   </div>
                 </form>
+                <!-- Hidden form -->
                 <form id="check-coupon" name="check-coupon" action="<?php echo e(route('check.coupon')); ?>" method="POST" style="display: none;">
-                        <?php echo e(csrf_field()); ?>
+                  <?php echo e(csrf_field()); ?>
 
-                      </form>
+                </form>
               </div>
             </div>
             <div class="card">
@@ -138,11 +139,16 @@
                   <dd class="text-right h5"><strong><?php echo e($total - $discount); ?>€</strong></dd>
                 </dl>
                 <hr>
-                <a href="<?php echo e(route('checkout')); ?>">
-                  <button class="btn btn-danger col-md-12">
+                  <button class="btn btn-danger col-md-12" type="submit" form="checkout">
                     <i class="fas fa-box"></i> Realizar pedido
                   </button>
-                </a>  
+                <!-- Hidden form -->
+                <form id="checkout" name="checkout" action="<?php echo e(route('checkout')); ?>" method="POST" style="display: none;">
+                  <?php echo e(csrf_field()); ?>
+
+                  <input type="hidden" id="discount" name="discount" value="<?php echo e($discount); ?>">
+                </form>
+                <div>
               </div>
             </div>
           </aside>

@@ -11,7 +11,7 @@
 
         <div class="text-center">
             <img class="mb-4 te" src="../../../storage/saitamalogo.png" alt="" width="80"><br>
-            <h2><b>Saitama<span class="text-danger"><i>Login</i></span></b></a></h3>
+            <h2><b>Saitama<span class="text-danger"><i>Login</i></span></b></h2>
         </div>
         <label for="inputEmail" class="sr-only">Dirección e-mail</label>
         <input type="email" id="email" class="form-control" name="email" placeholder="Dirección e-mail" value="<?php echo e(old('email')); ?>"required autofocus>
