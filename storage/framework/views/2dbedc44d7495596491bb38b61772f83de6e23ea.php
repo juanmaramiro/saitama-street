@@ -1,12 +1,10 @@
-@extends('layouts.page')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
     Acceso denegado
-@endsection
+<?php $__env->stopSection(); ?>
 
-<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+<link href="<?php echo e(asset('css/login.css')); ?>" rel="stylesheet">
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <form class="form-signin" style="margin-bottom: 2em">
         <div class="text-center">
@@ -18,4 +16,5 @@
         </div>
     </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.page', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
